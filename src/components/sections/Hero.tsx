@@ -30,7 +30,7 @@ export default function Hero() {
 
           {/* Hero Title */}
           <h1 className="text-4xl sm:text-5xl font-display font-bold tracking-tight text-[#ede7dd] mb-6">
-            Australia's Trusted Property Buying Experts
+            Australia&apos;s Trusted Property Buying Experts
           </h1>
 
           {/* Description */}

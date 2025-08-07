@@ -70,11 +70,11 @@ export default function TestimonialCarousel() {
             What Our Clients Say
           </h2>
           <p className="text-muted dark:text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            Real stories from people we've helped along the way.
+            Real stories from people we&apos;ve helped along the way.
           </p>
         </motion.div>
 
-        <div className="overflow-hidden py-5" ref={emblaRef}>
+        <div className="overflow-hidden py-5 px-4" ref={emblaRef}>
           <div className="flex gap-6 px-4">
             {testimonials.map((testimonial, index) => (
               <div
