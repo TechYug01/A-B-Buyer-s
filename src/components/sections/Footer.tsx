@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -26,8 +25,8 @@ export default function Footer() {
               />
             </Link>
             <p className="text-muted-foreground dark:text-gray-300 text-sm leading-relaxed font-body text-pretty">
-              Australia's trusted property buying experts, delivering tailored
-              solutions for owner-occupiers, investors, and developers.
+              Australia&apos;s trusted property buying experts, delivering
+              tailored solutions for owner-occupiers, investors, and developers.
             </p>
           </div>
 
