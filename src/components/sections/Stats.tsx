@@ -63,10 +63,12 @@ export default function StatsSection() {
               size={40}
               className="text-primary dark:text-accent mb-4"
             />
-            <p className="text-5xl font-bold text-primary dark:text-accent tabular-nums">
+            <p className="text-5xl font-bold text-primary dark:text-accent tabular-nums font-display">
               {monthly}+
             </p>
-            <p className="mt-2 text-base font-medium">Monthly Transactions</p>
+            <p className="mt-2 text-base font-medium font-san">
+              Monthly Transactions
+            </p>
           </motion.div>
 
           {/* Yearly Transactions */}
@@ -81,10 +83,12 @@ export default function StatsSection() {
               size={40}
               className="text-primary dark:text-accent mb-4"
             />
-            <p className="text-5xl font-bold text-primary dark:text-accent tabular-nums">
+            <p className="text-5xl font-bold text-primary dark:text-accent tabular-nums font-display">
               {yearly}+
             </p>
-            <p className="mt-2 text-base font-medium">Yearly Transactions</p>
+            <p className="mt-2 text-base font-medium font-san">
+              Yearly Transactions
+            </p>
           </motion.div>
 
           {/* Fastest Deal */}
@@ -96,10 +100,10 @@ export default function StatsSection() {
             className="flex flex-col items-center"
           >
             <Clock size={40} className="text-primary dark:text-accent mb-4" />
-            <p className="text-5xl font-bold text-primary dark:text-accent tabular-nums">
+            <p className="text-5xl font-bold text-primary dark:text-accent tabular-nums font-display">
               {days} Days
             </p>
-            <p className="mt-2 text-base font-medium">
+            <p className="mt-2 text-base font-medium font-san">
               Fastest Deal (Brief to Purchase)
             </p>
           </motion.div>

@@ -1,60 +1,37 @@
 "use client";
 
+import { testimonials } from "@/lib/testimonialsData";
 import clsx from "clsx";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { useCallback, useEffect } from "react";
-
-const testimonials = [
-  {
-    name: "James W.",
-    text: "A&P made buying my first investment property feel simple and stress-free. Their insights were invaluable!",
-    rating: 5,
-  },
-  {
-    name: "Priya M.",
-    text: "Professional, prompt, and extremely knowledgeable. Highly recommend their team for property investment advice.",
-    rating: 5,
-  },
-  {
-    name: "Lachlan B.",
-    text: "We found the perfect home with their guidance. Their negotiation skills saved us thousands!",
-    rating: 5,
-  },
-  {
-    name: "James W.",
-    text: "A&P made buying my first investment property feel simple and stress-free. Their insights were invaluable!",
-    rating: 5,
-  },
-  {
-    name: "Priya M.",
-    text: "Professional, prompt, and extremely knowledgeable. Highly recommend their team for property investment advice.",
-    rating: 5,
-  },
-];
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function TestimonialCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const autoplay = useCallback(() => {
+  const startAutoplay = useCallback(() => {
     if (!emblaApi) return;
 
-    const interval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       if (!emblaApi.canScrollNext()) {
         emblaApi.scrollTo(0);
       } else {
         emblaApi.scrollNext();
       }
     }, 4000);
-
-    return () => clearInterval(interval);
   }, [emblaApi]);
 
+  const stopAutoplay = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
+
   useEffect(() => {
-    const stop = autoplay();
-    return stop;
-  }, [autoplay]);
+    if (!isHovered) startAutoplay();
+    return stopAutoplay;
+  }, [startAutoplay, isHovered]);
 
   return (
     <section className="py-20 bg-light dark:bg-dark transition-colors duration-300">
@@ -72,13 +49,30 @@ export default function TestimonialCarousel() {
           <p className="text-muted dark:text-muted-foreground text-lg max-w-2xl mx-auto font-body">
             Real stories from people we&apos;ve helped along the way.
           </p>
+
+          <a
+            href="/testimonials"
+            className="inline-block mt-4 text-primary dark:text-accent font-semibold hover:underline font-display"
+          >
+            View All Testimonials →
+          </a>
         </motion.div>
 
-        <div className="overflow-hidden py-5 px-4" ref={emblaRef}>
+        <div
+          className="overflow-hidden py-5 px-4"
+          ref={emblaRef}
+          onMouseEnter={() => {
+            setIsHovered(true);
+            stopAutoplay();
+          }}
+          onMouseLeave={() => {
+            setIsHovered(false);
+          }}
+        >
           <div className="flex gap-6 px-4">
             {testimonials.map((testimonial, index) => (
               <div
-                className="min-w-0 flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
+                className="min-w-115 max-sm:min-w-0 flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
                 key={index}
               >
                 <motion.div
@@ -90,7 +84,7 @@ export default function TestimonialCarousel() {
                   )}
                 >
                   <div className="mb-4">
-                    <p className="text-base font-body text-muted-foreground dark:text-zinc-300">
+                    <p className="text-base font-body text-muted-foreground dark:text-zinc-300 text-justify">
                       “{testimonial.text}”
                     </p>
                   </div>

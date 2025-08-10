@@ -26,8 +26,8 @@ const navLinks = [
 export default function Header() {
   const { setTheme, theme } = useTheme();
   const pathname = usePathname();
-
   const [mounted, setMounted] = useState(false);
+
   const [showHeader, setShowHeader] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -59,11 +59,17 @@ export default function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-2xl font-display font-semibold text-primary dark:text-accent"
-        >
-          A&P Buyers
+        <Link href="/" className="flex items-center">
+          <img
+            src="/logo-dark.png"
+            alt="A&P Buyers Logo"
+            className="h-12 w-auto dark:hidden"
+          />
+          <img
+            src="/logo-light.png"
+            alt="A&P Buyers Logo"
+            className="h-12 w-auto hidden dark:block"
+          />
         </Link>
 
         {/* Desktop Nav */}

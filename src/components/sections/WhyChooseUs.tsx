@@ -78,7 +78,7 @@ export default function WhyChooseUs() {
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-dark dark:text-white">
             Why Choose A&P Buyers
           </h2>
-          <p className="mt-4 text-base sm:text-lg font-san text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg font-body text-muted-foreground max-w-2xl mx-auto">
             We bring clarity, strategy, and a nationwide network to every
             property journey.
           </p>
@@ -99,7 +99,7 @@ export default function WhyChooseUs() {
               <h3 className="text-lg font-semibold text-dark dark:text-white mb-2 font-display">
                 {feature.title}
               </h3>
-              <p className="text-sm text-muted-foreground font-san leading-relaxed">
+              <p className="text-sm text-muted-foreground font-san leading-relaxed text-pretty">
                 {feature.description}
               </p>
             </motion.div>

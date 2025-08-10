@@ -20,7 +20,7 @@ const lora = Lora({
 
 const quicksand = Quicksand({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-san",
   weight: ["400", "500", "700"],
   display: "swap",
 });

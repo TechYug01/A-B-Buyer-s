@@ -1,5 +1,9 @@
 import Header from "@/components/Header";
+import Footer from "@/components/sections/Footer";
 import Hero from "@/components/sections/Hero";
+import NewsletterSignup from "@/components/sections/Newsletter";
+import ServicesSection from "@/components/sections/Services";
+import SponsorshipsEventsOverview from "@/components/sections/SponsorshipsEvents";
 import StatsSection from "@/components/sections/Stats";
 import TestimonialCarousel from "@/components/sections/Testimonials";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
@@ -19,6 +23,10 @@ export default function Home() {
       <WhyChooseUs />
       <StatsSection />
       <TestimonialCarousel />
+      <ServicesSection />
+      <SponsorshipsEventsOverview />
+      <NewsletterSignup />
+      <Footer />
     </>
   );
 }
