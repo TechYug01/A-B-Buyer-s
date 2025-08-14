@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import { Lora, Playfair_Display, Quicksand } from "next/font/google";
 
 const playfair = Playfair_Display({
@@ -55,7 +57,9 @@ export default function RootLayout({
           defaultTheme="light"
           enableSystem={false}
         >
+          <Header />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

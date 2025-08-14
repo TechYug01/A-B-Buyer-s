@@ -1,5 +1,3 @@
-import Header from "@/components/Header";
-import Footer from "@/components/sections/Footer";
 import Hero from "@/components/sections/Hero";
 import NewsletterSignup from "@/components/sections/Newsletter";
 import ServicesSection from "@/components/sections/Services";
@@ -18,7 +16,6 @@ export default function Home() {
         image="https://www.apbuyersagency.com.au/og-image.jpg"
         url="https://www.apbuyersagency.com.au"
       />
-      <Header />
       <Hero />
       <WhyChooseUs />
       <StatsSection />
@@ -26,7 +23,6 @@ export default function Home() {
       <ServicesSection />
       <SponsorshipsEventsOverview />
       <NewsletterSignup />
-      <Footer />
     </>
   );
 }

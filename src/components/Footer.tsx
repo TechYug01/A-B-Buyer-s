@@ -1,5 +1,6 @@
 "use client";
 
+import { contacts, socialLinks } from "@/lib/contactData";
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
 import Link from "next/link";
@@ -70,6 +71,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/events"
+                  className="text-muted-foreground dark:text-gray-300 hover:text-primary"
+                >
+                  Events
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/book"
                   className="text-muted-foreground dark:text-gray-300 hover:text-primary"
                 >
@@ -85,16 +94,28 @@ export default function Footer() {
               Contact Us
             </h3>
             <ul className="space-y-3 text-sm text-muted-foreground dark:text-gray-300">
-              <li className="flex items-center gap-2">
-                <Phone size={16} />{" "}
-                <Link href={"tel:+61400000000"}>+61 400 000 000</Link>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail size={16} />{" "}
-                <Link href={"mailto:info@apbuyers.com.au"}>
-                  info@apbuyers.com.au
-                </Link>
-              </li>
+              {contacts.map((contact) => (
+                <li key={contact.id} className="flex items-center gap-2">
+                  {contact.title === "Email" ? (
+                    <Mail size={16} />
+                  ) : contact.title === "Phone" ? (
+                    <Phone size={16} />
+                  ) : null}
+                  <Link
+                    href={
+                      contact.title === "Email"
+                        ? `mailto:${contact.value}`
+                        : contact.title === "Phone"
+                        ? `tel:${contact.value}`
+                        : "#"
+                    }
+                    target="_blank"
+                    className="hover:text-primary transition break-all"
+                  >
+                    {contact.value}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -105,21 +126,21 @@ export default function Footer() {
             </h3>
             <div className="flex gap-4">
               <Link
-                href="#"
+                href={socialLinks[0].url}
                 target="_blank"
                 className="p-2 rounded-full bg-muted/20 hover:bg-primary/70 text-dark dark:text-white dark:bg-zinc-800 transition"
               >
                 <Facebook size={18} />
               </Link>
               <Link
-                href="#"
+                href={socialLinks[1].url}
                 target="_blank"
                 className="p-2 rounded-full bg-muted/20 hover:bg-primary/70 text-dark dark:text-white dark:bg-zinc-800 transition"
               >
                 <Instagram size={18} />
               </Link>
               <Link
-                href="#"
+                href={socialLinks[2].url}
                 target="_blank"
                 className="p-2 rounded-full bg-muted/20 hover:bg-primary/70 text-dark dark:text-white dark:bg-zinc-800 transition"
               >

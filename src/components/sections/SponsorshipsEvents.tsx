@@ -1,39 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { events } from "@/lib/eventsData";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-
-const events = [
-  {
-    title: "Local Sports Team Sponsorship",
-    date: "Ongoing",
-    description:
-      "Proud sponsors of our local football team, supporting community sports and youth engagement.",
-    image:
-      "https://images.unsplash.com/photo-1494778696781-8f23fd5553c4?q=80&w=1022&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "/events/local-sports-sponsorship",
-  },
-  {
-    title: "Community Property Forum 2025",
-    date: "August 15, 2025",
-    description:
-      "A networking event bringing together property investors, developers, and homebuyers for insights and opportunities.",
-    image:
-      "https://images.unsplash.com/photo-1709015171508-d8863894cb26?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "/events/community-property-forum-2025",
-  },
-  {
-    title: "First Home Buyers Workshop",
-    date: "August 20, 2025",
-    description:
-      "An educational session for first-time buyers covering finance, market insights, and buying strategies.",
-    image:
-      "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "/events/first-home-buyers-workshop",
-  },
-];
 
 export default function SponsorshipsEventsOverview() {
   return (
@@ -73,10 +44,10 @@ export default function SponsorshipsEventsOverview() {
           </p>
           <div className="flex gap-3 font-display">
             <Button asChild variant="default" size="sm">
-              <Link href="/sponsorships-events">Learn More</Link>
+              <Link href="/events">Learn More</Link>
             </Button>
             <Button asChild variant="outline" size="sm">
-              <Link href="/contact">Get Involved</Link>
+              <Link href="/events#partner-with-us">Get Involved</Link>
             </Button>
           </div>
         </motion.div>
@@ -109,6 +80,7 @@ export default function SponsorshipsEventsOverview() {
                   width={600}
                   height={400}
                   className="w-full h-48 object-cover"
+                  loading="lazy"
                 />
                 <div className="p-6 flex flex-col flex-grow">
                   <h4 className="text-lg font-display font-semibold text-dark dark:text-white mb-2">

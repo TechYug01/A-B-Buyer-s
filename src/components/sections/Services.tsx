@@ -79,7 +79,7 @@ export default function ServicesOverview() {
                 <h3 className="text-xl font-semibold font-display text-dark dark:text-white mb-3">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground dark:text-gray-300 font-body mb-6 font-san text-pretty">
+                <p className="text-muted-foreground dark:text-gray-300 mb-6 font-san text-pretty">
                   {service.description}
                 </p>
               </div>

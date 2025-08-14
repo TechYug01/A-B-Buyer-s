@@ -42,6 +42,8 @@ export default function NewsletterSignup() {
             type="text"
             placeholder="Your Name"
             value={name}
+            id="name"
+            autoComplete="name"
             onChange={(e) => setName(e.target.value)}
             required
             className="px-4 py-3 rounded-lg border border-border bg-white dark:bg-zinc-900 text-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-primary w-full sm:w-auto"
@@ -49,6 +51,8 @@ export default function NewsletterSignup() {
           <input
             type="email"
             placeholder="Your Email"
+            id="email"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
